@@ -1,0 +1,19 @@
+{
+  "name": "Monster-Slayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "node-sass": "^4.12.0",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

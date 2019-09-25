@@ -1,0 +1,573 @@
+body {
+    margin: 0;
+    padding: 1rem;
+    background-color: #333;
+}
+
+#app {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.app-after-wrap {
+    display: flex;
+    margin: 20px auto;
+    width: 900px;
+}
+
+.app-bg {
+    position: relative;
+    margin: 0 auto;
+    height: 600px;
+    width: 800px;
+    background-color: #000;
+    background-image: url('./assets/Background.png');
+    background-position: bottom;
+}
+
+.characters-wrap {
+    height: 600px;
+    width: 800px;
+    position: relative;
+}
+
+/* HERO */
+.hero {
+    position: absolute;
+    bottom: 3%;
+    right: 20%;
+    width: 160px;
+    height: 200px;
+}
+
+/* Progress Bars */
+.hero-progress-bars-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 255px;
+    position: absolute;
+    bottom: -5px;
+    left: -48px;
+}
+
+.health-bar, .mana-bar {
+    font-size: 10px;
+    position: relative;
+    text-align: center;
+    margin: 0 2px 0 2px ;
+}
+
+.hero-health, .hero-mana {
+    width: 100%;
+    color: #fff;
+    height: 25px;
+    border: 1px solid #fff;
+}    
+
+.hero-health-bar-fill {
+    width: 100%;
+    height: 100%;
+    background-color: #8eb765;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-mana-bar-fill {
+    width: 100%;
+    height: 100%;
+    background-color: #4b8bb9;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-health-bar-info {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.hero img {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    position: absolute; 
+}
+
+.hero-iddle-one {
+    -webkit-animation-name: heroIddleOne;
+    animation-name: heroIddleOne;
+    z-index: 0;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+.hero-iddle-two {
+    -webkit-animation-name: heroIddleTwo;
+    animation-name: heroIddleTwo;
+    z-index: -1;
+    
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+.hero-attack-one {
+    -webkit-animation-name: heroAttackOne;
+    animation-name: heroIddleOne;
+    z-index: 0;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+.hero-attack-two {
+    -webkit-animation-name: heroAttackTwo;
+    animation-name: heroIddleTwo;
+    z-index: -1;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+.hero-death-one {
+    -webkit-animation-name: heroDeathOne;
+    animation-name: heroDeathOne;
+    z-index: 0;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+}
+
+.hero-death-two {
+    -webkit-animation-name: heroDeathTwo;
+    animation-name: heroDeathTwo;
+    z-index: -1;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+}
+
+@keyframes heroIddleOne {
+    0% {
+        z-index: 0
+    }
+      100% {
+        z-index: -1;
+      }
+}
+
+@keyframes heroIddleTwo {
+    0% {
+        z-index: -1;
+      }
+      100% {
+        z-index: 0;
+      }
+}
+
+@keyframes heroAttackOne {
+    0% {
+        z-index: 0
+    }
+      100% {
+        z-index: -1;
+      }
+}
+
+@keyframes heroAttackTwo {
+    0% {
+        z-index: -1;
+      }
+      100% {
+        z-index: 0;
+      }
+}
+
+
+@keyframes heroDeathOne {
+    0% {
+        z-index: 0
+    }
+      100% {
+        z-index: -1;
+      }
+}
+
+@keyframes heroDeathTwo {
+    0% {
+        z-index: -1;
+      }
+      100% {
+        z-index: 0;
+      }
+}
+
+/* MONSTER */
+.monster {
+    position: absolute;
+    bottom: 30%;
+    left: 20%;
+    width: 160px;
+    height: 200px;
+}
+
+.monster img {
+    position: absolute;
+}
+
+.monster-iddle-one {
+    -webkit-animation-name: monsterIddleOne;
+    animation-name: monsterIddleOne;
+    z-index: 0;
+    animation-delay: 1500ms;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+.monster-iddle-two {
+    -webkit-animation-name: monsterIddleTwo;
+    animation-name: monsterIddleTwo;
+    z-index: -1;
+    animation-delay: 1500ms;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+.monster-attack-one {
+    z-index: 0;
+}
+
+.monster-projectile-one, .monster-projectile-two {
+    right: -205px;
+    top: 6px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+.monster-projectile-one.active, .monster-projectile-two.active {
+    z-index: 1;
+    opacity: 1;
+}
+
+.monster-projectile-two.active {
+    -webkit-animation-name: monsterProjectileTwo;
+    animation-name: monsterProjectileTwo;
+    z-index: 0;
+    animation-delay: 1s;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+            transform: rotate(22deg);
+}
+
+.monster-death-one {
+    -webkit-animation-name: monsterDeathOne;
+    animation-name: monsterDeathOne;
+    z-index: 0;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+}
+
+.monster-death-two {
+    -webkit-animation-name: monsterDeathTwo;
+    animation-name: monsterDeathTwo;
+    z-index: -1;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+}
+
+@keyframes monsterIddleOne {
+    0% {
+        z-index: 0
+    }
+      100% {
+        z-index: -1;
+      }
+}
+
+@keyframes monsterIddleTwo {
+    0% {
+        z-index: -1;
+      }
+      100% {
+        z-index: 0;
+      }
+}
+
+@keyframes monsterProjectileTwo {
+    0% {
+        right: -205px;
+        top: 6px;
+        z-index: 1;
+        opacity: 1;
+      }
+      99% {
+        right: -378px;
+        top: 114px;
+        z-index: 1;
+        opacity: 1;
+      }
+      100% {
+        right: -378px;
+        top: 114px;
+        z-index: 1;
+        opacity: 0;
+      }
+}
+
+@keyframes monsterDeathOne {
+    0% {
+        z-index: 0
+    }
+      100% {
+        z-index: -1;
+      }
+}
+
+@keyframes monsterDeathTwo {
+    0% {
+        z-index: -1;
+      }
+      100% {
+        z-index: 0;
+      }
+}
+
+
+/* CombatLog */
+.game-log, .game-credits {
+    width: 455px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    background-color: #ffeffe;
+    padding: 1rem;
+    max-height: 260px;
+}
+
+.game-log {
+    overflow-y: auto;
+}
+
+.game-credits {
+    font-size: 12px;
+    line-height: 19px;
+    color: #333;
+}
+
+.title {
+    color: #333;
+    font-size: 16px;
+}
+
+.combat-log {
+    list-style: none;
+    padding: 0;
+}
+
+.combat-log li {
+    font-size: 12px;
+    padding: 3px 0;
+}
+
+.combat-log li span {
+    font-size: 16px;
+    color: black !important;
+}
+
+.player-turn {
+    color: #569c9c;
+}
+
+.monster-turn {
+    color: #a74949;
+}
+
+/* PLAYER CONTROLS */
+.player-controls {
+    position: absolute;
+    display: flex;
+    z-index: 10;
+    width: 100%;
+    width: 800px;
+    height: 100px;
+    margin-top: 95px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+    transition: all 300ms;
+}
+
+.player-controls button {
+    font-family: 'Press Start 2P', cursive;
+    height: 35px;
+    margin: 0 10px;
+    text-shadow: 2px 2px 3px rgba(0,0,0,.5);
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+.player-controls button.deactivated {
+    background-color: #7b7b7b;
+    cursor: no-drop;
+    pointer-events: none;
+}
+
+.player-controls button.deactivated-single {
+    background-color: #7b7b7b !important;
+    cursor: no-drop !important;
+    pointer-events: none !important;
+}
+
+/* Banner */
+.banner {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 10;
+    color: #f9f9f9;
+    /* font-size: 16px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.banner-won {
+    background-color: #569c9c;
+}
+
+.banner-lost {
+    background-color: #a74949;
+}
+
+.banner h1 {
+    font-size: 24px;
+}
+
+.banner button {
+    font-family: 'Press Start 2P', cursive;
+    height: 35px;
+    margin: 0 10px;
+    text-shadow: 2px 2px 3px rgba(0,0,0,.5);
+    color: #f9f9f9;
+    background-color: #000;
+    cursor: pointer;
+}
+
+.start-game-button {
+    background-color: #569c9c;
+}
+
+.hero-attack-button {
+    background-color: #569c9c;
+}
+
+.hero-special-button {
+    background-color: #a74949;
+}
+
+.hero-heal-button {
+    background-color: #8eb765;
+}
+
+/* MISC */
+.floating-damage, .floating-health {
+    position: absolute;
+    color: #e44343;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    opacity: 0;
+}
+
+.floating-health {
+    color: #8eb765; 
+}
+
+.monster .floating-damage.active {
+    -webkit-animation-name: floatingDamage;
+    animation-name: floatingDamage;
+    bottom: 40px;
+    right: -7px;
+    opacity: 0;
+    animation-delay: 1s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1; 
+}
+
+.hero .floating-damage.active, .hero .floating-health.active {
+    -webkit-animation-name: heroFloatingDamage;
+    animation-name: heroFloatingDamage;
+    left: 61px;
+    bottom: 125px;
+    bottom: 40px;
+    right: -7px;
+    opacity: 0;
+    animation-delay: 1s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1; 
+}
+
+@keyframes floatingDamage {
+    0% {
+        bottom: 40px;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 70px;
+        opacity: 0;
+      }
+}
+
+@keyframes heroFloatingDamage {
+    0% {
+        bottom: 125px;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 155px;
+        opacity: 0;
+      }
+}
+
+button:focus {
+    outline: none;
+}

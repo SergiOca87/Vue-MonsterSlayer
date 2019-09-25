@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="app">
+            <div class="app-bg">
+                <div class="player-controls">
+                    <button @click="startGame" v-if="!show" class="start-game-button">Start Game</button>
+                    <template v-else>
+                        <button @click="heroAttack()" :class="{ 'deactivated' : deactivatedControls }" class="hero-attack-button">Hero Attack</button>
+                        <button @click="heroSpecial()" :class="{ 'deactivated' : deactivatedControls, 'deactivated-single' : singleDeactivated }" class="hero-special-button">Special Attack</button>
+                        <button @click="heroHeal()" :class="{ 'deactivated' : deactivatedControls, 'deactivated-single' : singleDeactivated }" class="hero-heal-button">Hero Heal</button>
+                    </template>  
+                </div>
+
+                <div :class="{ 'banner-won' : bannerWon, 'banner-lost' : bannerLost }" class="banner" v-if="bannerShow">
+                    <h1>{{ bannerText }}</h1>
+                    <button @click="startGame">New Game</button>
+                </div>
+
+                <!-- Screen, Hero and Monster -->
+                <div class="characters-wrap" v-if="show">
+                    <div class="hero">
+                            <span class="floating-damage">{{ monsterDmg }}</span>
+                            <span class="floating-health">{{ heroHealPoints }}</span>
+                        <div class="hero-image-wrap">
+                            <img src="./assets/hero/Player_Idle_Sword_Defence0_1.png" class="hero-iddle hero-iddle-one">
+                            <img src="./assets/hero/Player_Idle_Sword_Defence0_2.png" class="hero-iddle hero-iddle-two">
+                        </div>
+                        <div class="hero-progress-bars-wrap">
+                            <div class="hero-health health-bar">
+                                <span class="hero-health-bar-fill" :style="{ width: hero_health + '%' }"></span>
+                                <span class="hero-health-bar-info">HP: {{ hero_health }}</span>
+                            </div>
+                            <div class="hero-mana mana-bar">
+                                    <span class="hero-mana-bar-fill" :style="{ width: heroMana + '%' }"></span>
+                                    <span class="hero-health-bar-info"> MP: {{ heroMana }}</span>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="monster">
+                            <span class="floating-damage">{{ heroDmg }}</span>
+                            <div class="monster-projectil-wrap">
+                                <img src="./assets/monster/Projectile2/DungeonMaster_Blast_1.png" class="monster-projectile-one">
+                                <img src="./assets/monster/Projectile2/DungeonMaster_Projectile_0.png" class="monster-projectile-two">
+                            </div>
+                            <div class="monster-image-wrap">
+                                <img src="./assets/monster/DungeonMaster_Walk_3.png" class="monster-iddle monster-iddle-one">
+                                <img src="./assets/monster/DungeonMaster_Walk_2.png" class="monster-iddle monster-iddle-two">
+                            </div>
+                    </div> 
+                </div> <!-- app-bg -->
+            </div>
+
+            <div class="app-after-wrap">
+                <div class="game-log">
+                    <p class="title">Combat Log:</p>
+                    <ul class="combat-log">
+                        <li 
+                            v-for="log in combatLog"
+                            :class="{ 'player-turn': log.isPlayer, 'monster-turn': log.isMonster }"
+                            >{{ log.text }}</li>
+                    </ul>
+                </div>
+                <div class="game-credits">
+                    <p class="title">Credits:</p>
+                    <p>
+                        This little game App is coded only using HTML, CSS and Javascript(Vue)<br>
+                        It is mainly a study of the Vue.js framework.
+                        <br>
+                        All of the code can be found in this <a href="">Git repository</a>
+                    </p>
+                    <p>
+                        Character Sprites by: <a href="https://uilleaggodwin.itch.io/" target="_blank">UilleagGodwin</a> <br>
+                        Background art by <a href="https://itch.io/profile/edermunizz" target="_blank">edermunizz</a>
+                    </p> 
+                    <p>Coded with ❤ by <a href="https://sergioca.com" target="_blank">Sergi Oca</a></p>
+                </div>
+            </div>
+        </div><!-- App -->
+
+
+        <script src="main.js"></script>
+    </body>
+</html>
