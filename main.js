@@ -25,6 +25,7 @@ new Vue({
             this.monster_health = 100;
             this.deactivatedControls = false;
             this.heroMana = 100;
+            this.singleDeactivated = false,
             this.combatLog = [];
         },
         //Generate random numbers between a range
